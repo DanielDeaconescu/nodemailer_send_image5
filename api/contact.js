@@ -29,6 +29,8 @@ export default async (req, res) => {
 
       bb.on("close", resolve(result));
       bb.on("error", reject);
+
+      req.pipe(bb);
     });
 
     // Validate the fields
