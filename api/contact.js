@@ -55,7 +55,7 @@ export default async (req, res) => {
       }
     ).then((res) => res.json());
 
-    if (!turnstileResponse) {
+    if (!turnstileResponse.success) {
       return res
         .status(400)
         .json({ error: "Please complete the CAPTCHA verification!" });
@@ -75,6 +75,11 @@ export default async (req, res) => {
         <p><strong>Message: </strong> </p>
         <p>${formData.fields.message}</p>
       `,
+      attachment: formData.files.map((file) => ({
+        filename: file.name,
+        content: file.data,
+        contentType: file.type,
+      })),
     };
 
     const transporter = nodemailer.createTransport({
