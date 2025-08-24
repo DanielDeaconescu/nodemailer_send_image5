@@ -1,0 +1,49 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+#multipartForm {
+  max-width: 350px;
+}
+
+#toast {
+  position: fixed;
+  top: 3rem;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.attachment-label {
+  display: flex;
+  justify-content: center;
+  border: 2px dashed #ccc;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.attachment-label input[type="file"] {
+  display: none;
+}
+
+.toast-hidden {
+  opacity: 0;
+}
+
+.toast-visible {
+  opacity: 1 !important;
+}
+
+.toast-success {
+  background-color: lightgreen;
+}
+
+.toast-error {
+  background-color: red;
+}

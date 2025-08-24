@@ -3,7 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Submitting multipart form</title>
+
+    <!-- Turnstile JS -->
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="form-container">
+      <form id="multipartForm">
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input type="text" name="name" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" name="email" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="attachment" class="attachment-label">
+            <span class="attachment-label-filename"
+              >Upload an image (optional)</span
+            >
+            <input
+              type="file"
+              id="attachment"
+              name="attachment"
+              accept="image/*"
+            />
+          </label>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea name="message" class="form-control"></textarea>
+        </div>
+        <div class="mb-3">
+          <div
+            class="cf-turnstile"
+            data-sitekey="0x4AAAAAABr_bBNcVT21K8Bw"
+          ></div>
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary w-100">
+            <div class="spinner-border spinner-border-sm d-none"></div>
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div id="toast" class="toast-hidden">Message sent successfully!</div>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
 </html>
