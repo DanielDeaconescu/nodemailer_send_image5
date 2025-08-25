@@ -76,7 +76,7 @@ export default async (req, res) => {
         <p><strong>Message: </strong></p>
         <p>${formData.fields.message}</p>
       `,
-      attachment: formData.files.map((file) => ({
+      attachments: formData.files.map((file) => ({
         filename: file.name,
         content: file.data,
         contentType: file.type,
