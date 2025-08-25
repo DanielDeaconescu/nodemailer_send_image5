@@ -35,7 +35,7 @@ const validateForm = (form) => {
 
   // File upload validation
   const attachment = form.elements.attachment;
-  if (attachment && attachment.files.length > 0) {
+  if (attachment && attachment.files > 0) {
     const allowedTypes = ["image/jpeg", "image/png"];
     const files = Array.from(attachment.files);
 
