@@ -84,8 +84,8 @@ export default async (req, res) => {
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: 465,
       secure: true,
+      port: 465,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -98,7 +98,7 @@ export default async (req, res) => {
       .status(200)
       .json({ success: true, message: "Message sent successfully!" });
   } catch (error) {
-    console.error(error.message);
+    console.error(error);
     res.status(500).json({ error: error.message || "Internal server error" });
   }
 };
