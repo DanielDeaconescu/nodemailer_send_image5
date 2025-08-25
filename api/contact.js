@@ -64,15 +64,15 @@ export default async (req, res) => {
     // Sending the email
 
     const mailOptions = {
-      from: `Contact form <${process.env.SMTP_USER}>`,
+      from: `Form Submission <${process.env.SMTP_USER}>`,
       to: process.env.RECIPIENT_EMAIL,
       subject: `New Message from ${formData.fields.name}`,
-      text: `Name: ${formData.fields.name} \n Email: ${formData.fields.email} \n Message: ${formData.fields.message}`,
+      text: `Name: ${formData.fields.name}\n Email: ${formData.fields.email} \n Message: ${formData.fields.message}`,
       html: `
-        <h2>New Message</h2>
-        <p><strong>Full name: </strong> ${formData.fields.name} </p>
-        <p><strong>Email: </strong> ${formData.fields.email} </p>
-        <p><strong>Message: </strong> </p>
+        <h2>New message</h2>
+        <p><strong>Name: </strong> ${formData.fields.name}</p>
+        <p><strong>Email: </strong> ${formData.fields.email}</p>
+        <p><strong>Message: </strong></p>
         <p>${formData.fields.message}</p>
       `,
       attachment: formData.files.map((file) => ({
